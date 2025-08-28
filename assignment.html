@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enhanced Form Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+      background-color: #f9f9f9;
+    }
+    header, nav, main, footer {
+      margin-bottom: 20px;
+    }
+    form {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input, select, textarea, button {
+      margin-top: 5px;
+      padding: 8px;
+      width: 100%;
+      max-width: 400px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    table {
+      border-collapse: collapse;
+      margin-top: 15px;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    th {
+      background: #f0f0f0;
+    }
+    footer {
+      font-size: 0.9em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Enhanced HTML5 Form</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#info">Information</a></li>
+      <li><a href="#form">Form</a></li>
+      <li><a href="#media">Media</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="info">
+      <h2>Structured Content</h2>
+      <article>
+        <h3>Lists</h3>
+        <ul>
+          <li>First Item</li>
+          <li>Second Item</li>
+          <li>Third Item</li>
+        </ul>
+        <ol>
+          <li>Step One</li>
+          <li>Step Two</li>
+          <li>Step Three</li>
+        </ol>
+        <dl>
+          <dt>HTML</dt><dd>HyperText Markup Language</dd>
+          <dt>CSS</dt><dd>Cascading Style Sheets</dd>
+        </dl>
+      </article>
+
+      <article>
+        <h3>Sample Table</h3>
+        <table>
+          <caption>Example Table</caption>
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Age</th>
+              <th scope="col">Role</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Alice</td><td>24</td><td>Developer</td></tr>
+            <tr><td>Bob</td><td>29</td><td>Designer</td></tr>
+          </tbody>
+        </table>
+      </article>
+    </section>
+
+    <section id="form">
+      <h2>Form Section</h2>
+      <form>
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required autocomplete="name">
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email">
+
+        <label for="tel">Phone:</label>
+        <input type="tel" id="tel" name="tel" placeholder="123-456-7890" pattern="[0-9\-]+" required>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" min="18" max="100" required>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob">
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required minlength="6">
+
+        <label for="confirm">Confirm Password:</label>
+        <input type="password" id="confirm" name="confirm" required>
+
+        <label for="range">Satisfaction Level:</label>
+        <input type="range" id="range" name="range" min="0" max="10">
+
+        <label for="country">Select Country:</label>
+        <select id="country" name="country" required>
+          <option value="">--Choose--</option>
+          <option value="kenya">Kenya</option>
+          <option value="usa">USA</option>
+          <option value="uk">UK</option>
+        </select>
+
+        <label>Choose Hobbies:</label>
+        <input type="checkbox" id="sports" name="hobby" value="sports"> Sports
+        <input type="checkbox" id="music" name="hobby" value="music"> Music
+
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="male"> Male
+        <input type="radio" id="female" name="gender" value="female"> Female
+
+        <label for="bio">Bio:</label>
+        <textarea id="bio" name="bio" rows="4" placeholder="Tell us something about yourself"></textarea>
+
+        <label for="city">Search City:</label>
+        <input list="cities" id="city" name="city">
+        <datalist id="cities">
+          <option value="Nairobi">
+          <option value="Mombasa">
+          <option value="Kisumu">
+        </datalist>
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <section id="media">
+      <h2>Media Section</h2>
+        <figure>
+            <img src="https://images.pexels.com/photos/1564149/pexels-photo-1564149.jpeg" alt="Placeholder image" title="Placeholder image">
+            <figcaption>Sample Image</figcaption>
+      </figure>
+      <figure>
+        <audio controls>
+          <source src="https://freemusicarchive.org/music/puma-tunes/single/is-a-chill-hip-hop/" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        <figcaption>Sample Audio</figcaption>
+      </figure>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Enhanced Form Example</p>
+  </footer>
+
+  <script>
+    // Simple password match check
+    const form = document.querySelector("form");
+    form.addEventListener("submit", function(event) {
+      const pass = document.getElementById("password").value;
+      const confirm = document.getElementById("confirm").value;
+      if (pass !== confirm) {
+        alert("Passwords do not match!");
+        event.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>
